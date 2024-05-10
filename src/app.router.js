@@ -8,7 +8,7 @@ const initApp=(app,express)=>{
  app.use(express.json());
 
  app.use('/category',CategoryRouter);
- app.use('/',(req,res)=>{
+ app.get('/',(req,res)=>{
     return res.status(201).json({message:"success"})
   });
  app.use('*',(req,res)=>{
