@@ -1,6 +1,8 @@
 import connectDB from "../db/connection.js";
 import cors from 'cors'
 import CategoryRouter from "./category/category.router.js";
+import AuthRouter from "./auth/auth.router.js";
+import SubCategoryRouter from "./subcategory.js/subcategory.router.js";
 
 const initApp=(app,express)=>{
     connectDB();
@@ -8,6 +10,8 @@ const initApp=(app,express)=>{
  app.use(express.json());
 
  app.use('/category',CategoryRouter);
+ app.use('/subcategory',SubCategoryRouter);
+ app.use('/auth',AuthRouter);
  app.get('/',(req,res)=>{
     return res.status(201).json({message:"success"})
   });
